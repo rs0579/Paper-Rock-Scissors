@@ -8,6 +8,11 @@ Math.floor(Math.random() * 3) //WHY 3? BECAUSE THAT'S THE length OF THE ARRAY. T
 // math.floor(math.random())//THIS ROUNDS THE NUMBER DOWN
 
 
+const stats = {
+    Wins: 0,
+    Losses: 0,
+    Ties: 0
+}
 confirm("You think you can defeat ME?")
 
 let playAgain = true
@@ -19,13 +24,21 @@ while (playAgain) {
     if (userChoice === "R" && computerChoice === "S" ||
         userChoice === "P" && computerChoice === "R" ||
         userChoice === "S" && computerChoice === "P") {
-        console.log("YOU WIN?"); //&#128551
+        alert("YOU WIN?"); //&#128551
+        stats.Wins++
 
     } else if (userChoice === computerChoice) {
-        console.log("TIE? IMPOSSIBLE!");//&#128553
+        alert("TIE? IMPOSSIBLE!");//&#128553
+        stats.Ties++
+
 
     } else {
-        console.log("YOU LOSE");//&#128541
+        alert("YOU LOSE");//&#128541
+        stats.Losses++
     }
     playAgain = confirm("Do you dare play again?")
+    alert(`STATS
+Wins: ${stats.Wins}
+Losses: ${stats.Losses}
+Ties: ${stats.Ties}`)
 }
