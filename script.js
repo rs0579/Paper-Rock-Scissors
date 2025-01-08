@@ -16,11 +16,7 @@ const stats = {
 confirm("You think you can defeat ME?")
 
 let playAgain = true
-
-while (playAgain) {
-    const userChoice = prompt("Choose: R, P, or S!")
-    const computerOptions = ["R", "P", "S"]
-    const computerChoice = computerOptions[Math.floor(Math.random() * computerOptions.length)] //USING COMPUTEROPTIONS.length, THIS MAKES IT EASY TO ADD OR SUBTRACT VALUES FROM THE ARRAY AND NOT HAVE TO CHANGE THE NUMBER (3) EVERY TIME. IT CHANGES DEPENDING ON THE LENGTH OF THE ARRAY.
+function gamePlay(userChoice, computerChoice) {
     if (userChoice === "R" && computerChoice === "S" ||
         userChoice === "P" && computerChoice === "R" ||
         userChoice === "S" && computerChoice === "P") {
@@ -36,9 +32,18 @@ while (playAgain) {
         alert("YOU LOSE");//&#128541
         stats.Losses++
     }
+
+}
+
+while (playAgain) { 
+    const userChoice = prompt("Choose: R, P, or S!")
+    const computerOptions = ["R", "P", "S"]
+    const computerChoice = computerOptions[Math.floor(Math.random() * computerOptions.length)] //USING COMPUTEROPTIONS.length, THIS MAKES IT EASY TO ADD OR SUBTRACT VALUES FROM THE ARRAY AND NOT HAVE TO CHANGE THE NUMBER (3) EVERY TIME. IT CHANGES DEPENDING ON THE LENGTH OF THE ARRAY.
+    gamePlay(userChoice, computerChoice)
     playAgain = confirm("Do you dare play again?")
     alert(`STATS
 Wins: ${stats.Wins}
 Losses: ${stats.Losses}
 Ties: ${stats.Ties}`)
 }
+
